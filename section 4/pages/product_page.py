@@ -15,6 +15,15 @@ class ProductPage(BasePage):
         self.should_be_correct_name()
         self.should_be_correct_price()
 
+#Костыльный метод так как при добавлении нового продукта не по промо-ссылке не приходится решать quiz
+#и тесты валятся с эксепшенном NoAlertPresentException
+    def add_to_basket_new_product(self):
+        basket_btn = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located(ProductPageLocators.ADD_TO_BASKET_BTN))
+        basket_btn.click()
+        self.should_be_correct_name()
+        self.should_be_correct_price()
+
     def go_to_basket_page(self):
         view_bskt_btn = self.browser.find_element(*ProductPageLocators.VIEW_BASKET_BTN)
         view_bskt_btn.click()

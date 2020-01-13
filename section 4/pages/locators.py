@@ -4,10 +4,13 @@ from selenium.webdriver.common.by import By
 class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    USER_ICON = (By.CSS_SELECTOR, ".icon-user")
+    BASKET_LINK = (By.CSS_SELECTOR, ".btn-group a.btn-default")
 
 
 class MainPageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    RECOMMENDED_PRODUCT_LINK = (By.CSS_SELECTOR, ".col-sm-9 h3 a")
 	
 	
 class LoginPageLocators():
@@ -36,4 +39,5 @@ class ProductPageLocators():
 
 
 class BasketPageLocators():
-    pass
+    EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner >p")
+    BASKET_ITEMS = (By.CSS_SELECTOR, ".basket-items")
