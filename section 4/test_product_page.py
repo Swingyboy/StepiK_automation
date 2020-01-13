@@ -6,6 +6,7 @@ from pages.main_page import MainPage
 from pages.basket_page import BasketPage
 
 
+@pytest.mark.need_review
 @pytest.mark.parametrize('link', ["http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
                                   "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
@@ -84,7 +85,6 @@ class TestUserAddToBasketFromProductPage():
 		main_page = MainPage(browser, browser.current_url)
 		main_page.go_to_recommended_product_page()
 
-	@pytest.mark.need_review
 	def test_user_cant_see_success_message(self, browser):
 		page = ProductPage(browser, browser.current_url)
 		page.should_not_be_success_message()
